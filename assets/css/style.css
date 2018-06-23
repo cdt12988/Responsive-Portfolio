@@ -1,0 +1,381 @@
+/*============================
+	    Color Palette
+============================*/
+/*
+	*	Header Background, Links 				#4AAAA5
+	*	Primary Font							#777
+	*	Content Background, Secondary Font		#FFF
+	*	Main Header Border						#CCC
+	*	Footer Background						#666
+	*	Main Content Border						#DDD
+*/
+
+/*============================
+	    Global Styles
+============================*/
+
+html {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	background-image: url(../images/what-the-hex.png);
+	background-repeat: repeat;
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	color: #777;
+	line-height: 1.6;
+	font-size: 1.1em;
+	min-height: 100vh;
+		
+		
+/* Set layout of pages using grid */
+	display: grid;
+	grid: 
+		"header header header" 10vh
+		". main ." auto
+		"footer footer footer" 15vh
+		/ 14vw 72vw 14vw;
+}
+h1, h2 {
+	font-family: 'Georgia', Times, Times New Roman, serif;
+}
+h1 {
+	font-size: 1.75em;
+}
+a {
+	text-decoration: none;
+	color: #4AAAA5;
+}
+
+/*============================
+	        Header
+============================*/
+
+header {
+	grid-area: header;
+	background: #FFF;
+	border-bottom: 1px solid #CCC;
+/* Set layout of the header using grid */	
+	display: grid;
+	grid:
+		"nav-link heading . nav ." 10vh
+		/ 14vw 26vw 10vw 36vw 14vw;
+/* Make header fixed */		
+	position: fixed;
+	min-height: 10vh;
+	z-index: 10;
+}
+header h1 {	
+	background: #4AAAA5;
+	color: #FFF;
+	height: 100%;
+	min-height: 10vh;
+	margin: 0;
+	grid-column: 2 / 6; 
+	grid-row: 1 / 2;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	width: 86vw;
+}
+header h1 a {
+	color: inherit;
+	background: inherit;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header h1 a:hover,
+header h1 a:focus {
+	box-shadow: 0 0 10px #DDD;
+	outline: none;
+	background: #666;
+	width: 86vw;
+	min-width: 225px;
+}
+nav {
+	grid-area: nav;
+	height: 100%;
+}
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: flex-end;
+	height: 100%;
+}
+nav ul li {
+	display: inline;
+	text-align: end;
+	color: #4AAAA5;
+	width: 30%;
+	height: 100%;
+}
+nav ul li a {
+	color: inherit;
+	font-size: 1.2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+nav ul li a:hover,
+nav ul li a:focus {
+	background: #4AAAA5;
+	color: #FFF;
+	outline: none;
+}
+.nav-icon {
+	display: grid;
+	font-size: 3em;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	min-height: 10vh;
+	min-width: 14vw;
+	grid-area: nav-link;
+	justify-content: center;
+	align-items: center;
+}
+.nav-icon:hover,
+.nav-icon:focus {
+	background: #4AAAA5;
+	color: #FFF;
+	outline: none;
+}
+.nav-icon.clicked {
+	background: #4AAAA5;
+	color: #FFF;
+}
+.innactive {
+	display: none;
+}
+.active {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 10vh;
+	height: auto;
+	outline: 1px solid #4AAAA5;
+}
+.active a {
+	height: 10vh;
+	width: 50vw;
+	background: #FFF;
+}
+
+/* Show/reposition the header on larger screens */
+@media screen and (min-width: 960px) {
+	nav ul {
+		display: flex;
+	}
+	.innactive {
+		display: flex;
+	}
+	.nav-icon {
+		display: none;
+	}
+	header h1 {
+		grid-area: heading;
+		width: 100%;
+	}
+	header h1 a:hover,
+	header h1 a:focus {
+		box-shadow: 0 0 10px #666;
+		outline: none;
+		background: inherit;
+		min-width: 225px;
+		width: 26vw;
+	}
+}
+
+/* Give the header a minimum height on shorter screens */
+@media screen and (max-height: 650px) {
+	header, 
+	header h1, 
+	.nav-icon,
+	header ul {
+		min-height: 65px;
+	}
+	.active {
+		top: 65px;
+	}
+}
+
+/*============================
+	   Main Content
+============================*/
+
+main {
+	grid-area: main;
+	padding-top: 5%;
+	padding-bottom: 10%;
+}
+article {
+	background: #FFF;
+	padding: 5%;
+	border: 1px solid #DDD;
+	min-width: 275px;
+	min-height: 60vh;
+}
+.page-header {
+	border-bottom: 1px solid #4AAAA5;
+	font-size: 1.75em;
+	font-weight: 500;
+}
+.page-content p {
+	margin-top: 3%;
+}
+.page-content a:hover {
+	text-decoration: underline;
+}
+.page-content img {
+	float: none;
+	margin: 1em auto;
+	max-width: 400px;
+	min-width: 250px;
+	width: 33.3vw;
+	height: auto;
+	display: block;
+}
+
+/* Have content text wrap around the profile image on larger screens */
+@media screen and (min-width: 600px) {
+	.page-content img {
+		float: left;
+		margin: 1em;
+		display: inline-block;
+	}
+}
+
+/*============================
+	    Portfolio
+============================*/
+
+/* Create a responsive gallery using a flex layout (within the overall grid layout) */
+.portfolio-wrap {
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: 5%;
+	justify-content: center;
+	align-content: center;
+}
+.project-wrap {
+/* Have all images resize at the same rate depending on screen size */
+	grid: 1 1 100%;
+	position: relative;
+}
+.project-wrap img {
+	max-width: 250px;
+	margin: 0;
+	padding: 0 2.5% 5% 2.5%;
+}
+.project-text {
+/* Positions the project text over the image using absolute positioning */
+	width: 75%;
+	height: 20%;
+	position: absolute;
+	right: 2.5%;
+	bottom: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+	font-size: 1.15em;
+	background: rgba(74,170,165, 0.85);	
+	font-family: 'Georgia', Times, Times New Roman, serif;	
+}
+.project-img:hover {
+	opacity: 0.80;
+}
+.project-img:hover + .project-text,
+.project-text:hover {
+	background: rgba(74, 170, 165, 1);
+}
+.project-wrap a:focus {
+	outline: none;
+}
+/* Uses JavaScript to change multiple items on hover */
+.js-transparent {
+	opacity: 0.80;
+}
+
+/*============================
+	     Contact Form
+============================*/
+
+form {
+	margin: 0 auto;
+	width: auto;
+	padding: 0;
+	font-size: 0.8em;
+	min-height: 60vh;
+}
+form div {
+	margin-top: 2.5%;
+}
+label {
+	display: block;
+	width: 100%;
+}
+input, textarea {
+	font: 1em sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #DDD;
+	padding: 5px;
+}
+input {
+	height: 2em;
+}
+::placeholder {
+	color: #DDD;
+}
+input:focus, textarea:focus {
+	border-color: rgba(74,170,165, 0.75);
+	outline: none;
+}
+textarea {
+	height: 15em;
+}
+button {
+	transition: transform .2s;
+	background: #4AAAA5;
+	color: #FFF;
+	padding: 1em 2em;
+	cursor: pointer;
+}
+button:hover, button:focus {
+	transform: scale(1.1);
+	outline: none;
+}
+/* Changes font-size and form height on medium and larger screens */
+@media screen and (min-width: 500px) {
+	form {
+		font-size: 1em;
+		min-height: 100%;
+	}
+}
+
+/*============================
+	       Footer
+============================*/
+
+footer {
+	grid-area: footer;
+	background: #666;
+	color: #FFF;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
