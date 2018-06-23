@@ -65,7 +65,7 @@ header {
 	display: grid;
 	grid:
 		"nav-link heading . nav ." 10vh
-		/ 10vw 30vw 10vw 40vw 10vw;							/* changed */
+		/ 14vw 28vw 10vw 38vw 10vw;							/* changed */
 /* Make header fixed */		
 	position: fixed;
 	min-height: 10vh;
@@ -82,7 +82,7 @@ header h1 {
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	width: 90vw;											/* changed */
+	width: 86vw;											/* changed */
 }
 header h1 a {
 	color: inherit;
@@ -98,7 +98,7 @@ header h1 a:focus {
 	box-shadow: 0 0 10px #DDD;
 	outline: none;
 	background: #666;
-	width: 90vw;											/* changed */
+	width: 86vw;											/* changed */
 	min-width: 225px;
 }
 nav {
@@ -142,7 +142,7 @@ nav ul li a:focus {
 	height: 100%;
 	width: 100%;
 	min-height: 10vh;
-	min-width: 10vw;										/* changed */
+	min-width: 14vw;										/* changed */
 	grid-area: nav-link;
 	justify-content: center;
 	align-items: center;
@@ -195,7 +195,7 @@ nav ul li a:focus {
 		outline: none;
 		background: inherit;
 		min-width: 225px;
-		width: 30vw;													/* changed */
+		width: 28vw;													/* changed */
 	}
 }
 
